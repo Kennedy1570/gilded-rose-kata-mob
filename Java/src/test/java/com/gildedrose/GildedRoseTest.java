@@ -16,7 +16,15 @@ class GildedRoseTest {
         assertEquals(19, app.items[0].quality);
 
     }
+    @Test
+    void normalItem_decreasesSellnByone(){
+        Item[] items = new Item[] { new Item("Normal Item", 10, 20 ) };
+        GildedRose app = new GildedRose(items);
 
+        app.updateQuality();
+
+        assertEquals(9, app.items[0].sellIn);
+    }
 
 
 }

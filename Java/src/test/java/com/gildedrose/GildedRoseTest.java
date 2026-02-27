@@ -21,7 +21,6 @@ class GildedRoseTest {
     //checks that aged-brie quality is capped at 50
     void agedBrieQualityNeverExceeds50() {
         Item[] items = new Item[] { new Item("Aged Brie", 10, 50) };
-        System.out.println("BEFORE: sellIn=" + items[0].sellIn + ", quality=" + items[0].quality);
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(50, app.items[0].quality);
@@ -32,11 +31,8 @@ class GildedRoseTest {
     //checks that aged-brie quality increases by 2 after sellin < 0
     void agedBrieQualityIncreasesBy2() {
         Item[] items = new Item[] { new Item("Aged Brie", 0, 44) };
-        System.out.println("BEFORE: sellIn=" + items[0].sellIn + ", quality=" + items[0].quality);
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        System.out.println("AFTER:  sellIn=" + items[0].sellIn + ", quality=" + items[0].quality);
-        //System.out.println("AFTER:  name=" + items[0].name);
         assertEquals(46, app.items[0].quality);
         assertEquals(-1, app.items[0].sellIn);
     }

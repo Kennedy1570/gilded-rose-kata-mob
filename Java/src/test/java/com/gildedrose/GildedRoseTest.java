@@ -22,7 +22,7 @@ class GildedRoseTest {
         GildedRose app = new GildedRose(items);
 
         app.updateQuality();
-
+        //Assert
         assertEquals(9, app.items[0].sellIn);
     }
 

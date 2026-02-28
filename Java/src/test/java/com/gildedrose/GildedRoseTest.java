@@ -17,7 +17,8 @@ class GildedRoseTest {
         assertEquals(21, app.items[0].quality);
         assertEquals(9, app.items[0].sellIn);
     }
-        
+    
+    @Test
     void sulfurasQualityAndSellinValues() 
     {
         Item[] items = new Item[] 
@@ -53,8 +54,6 @@ class GildedRoseTest {
         Item[] items = new Item[] { new Item("Normal Item", 10, 0) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertEquals(21, app.items[0].quality);
-        assertEquals(9, app.items[0].sellIn);
 
         assertEquals(0, app.items[0].quality, "Quality should never be negative");
     }

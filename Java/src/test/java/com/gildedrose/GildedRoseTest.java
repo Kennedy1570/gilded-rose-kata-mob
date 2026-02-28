@@ -57,7 +57,15 @@ class GildedRoseTest {
 
         assertEquals(0, app.items[0].quality, "Quality should never be negative");
     }
+    @Test
+    void normalItem_decreasesSellnByone(){
+        Item[] items = new Item[] { new Item("Normal Item", 10, 20 ) };
+        GildedRose app = new GildedRose(items);
 
+        app.updateQuality();
+        //Assert
+        assertEquals(9, app.items[0].sellIn);
+    }
     @Test
     void qualityNeverExceedsFifty() {
         // check backstage passes, which can increase in quality, but should never exceed 50

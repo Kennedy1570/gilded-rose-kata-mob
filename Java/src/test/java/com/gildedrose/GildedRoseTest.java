@@ -10,7 +10,6 @@ class GildedRoseTest {
    private final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
 
     @Test
-<<<<<<< Roan-test
     void backstagePasses_IncreaseInQualityBy1_WhenMoreThan10DaysLeft() {
         Item[] items = new Item[] { new Item(BACKSTAGE_PASSES, 15, 20) };
         GildedRose app = new GildedRose(items);
@@ -40,7 +39,6 @@ class GildedRoseTest {
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(0, app.items[0].quality, "Quality should be 0 after the concert (sellIn < 0)");
-=======
     //checks that aged-brie quality increases by 1
     void agedBrieQualityIncreasedBy1() {
         Item[] items = new Item[] { new Item("Aged Brie", 10, 20) };
@@ -129,6 +127,5 @@ class GildedRoseTest {
         app.updateQuality();
         assertEquals(46, app.items[0].quality);
         assertEquals(-1, app.items[0].sellIn);
->>>>>>> main
     }
 }

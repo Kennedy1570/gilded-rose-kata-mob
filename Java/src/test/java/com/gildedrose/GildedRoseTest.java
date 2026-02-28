@@ -11,6 +11,13 @@ class GildedRoseTest {
     //checks that aged-brie quality increases by 1
     void agedBrieQualityIncreasedBy1() {
         Item[] items = new Item[] { new Item("Aged Brie", 10, 20) };
+        GildedRose app = new GildedRose(items);
+
+        app.updateQuality();
+        assertEquals(21, app.items[0].quality);
+        assertEquals(9, app.items[0].sellIn);
+    }
+        
     void sulfurasQualityAndSellinValues() 
     {
         Item[] items = new Item[] 
@@ -21,11 +28,24 @@ class GildedRoseTest {
 
         GildedRose app = new GildedRose(items);
 
-        assertEquals(19, app.items[0].quality, "Quality should decrease by 1 for normal items");
+        //assertEquals(19, app.items[0].quality, "Quality should decrease by 1 for normal items");
         System.out.println("BEFORE Update: Sulfurus Item #1 - Sellin = " + app.items[0].sellIn + ", Quality = " + app.items[0].quality);
         System.out.println("BEFORE Update: Sulfurus Item #2 - Sellin = " + app.items[1].sellIn + ", Quality = " + app.items[1].quality);
 
         app.updateQuality();
+        
+     // First Sulfurus item
+        assertEquals(0, app.items[0].sellIn);
+        assertEquals(80, app.items[0].quality);
+
+        // Second Sulfurus item
+        assertEquals(-1, app.items[1].sellIn);
+        assertEquals(80, app.items[1].quality);
+
+        
+        System.out.println("AFTER  Update: Sulfurus Item #1 - Sellin = " + app.items[0].sellIn + ", Quality = " + app.items[0].quality);
+        System.out.println("AFTER  Update: Sulfurus Item #2 - Sellin = " + app.items[1].sellIn + ", Quality = " + app.items[1].quality);
+    }
 
     @Test
     void testQualityNeverNegative() {
@@ -69,20 +89,5 @@ class GildedRoseTest {
         app.updateQuality();
         assertEquals(46, app.items[0].quality);
         assertEquals(-1, app.items[0].sellIn);
-    }
-    
-    
-    
-        // First Sulfurus item
-        assertEquals(0, app.items[0].sellIn);
-        assertEquals(80, app.items[0].quality);
-
-        // Second Sulfurus item
-        assertEquals(-1, app.items[1].sellIn);
-        assertEquals(80, app.items[1].quality);
-
-        
-        System.out.println("AFTER  Update: Sulfurus Item #1 - Sellin = " + app.items[0].sellIn + ", Quality = " + app.items[0].quality);
-        System.out.println("AFTER  Update: Sulfurus Item #2 - Sellin = " + app.items[1].sellIn + ", Quality = " + app.items[1].quality);
     }
 }

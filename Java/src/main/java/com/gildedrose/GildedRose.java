@@ -99,20 +99,16 @@ class GildedRose {
         }
     }
 
-    private int incrementSellinValue(Item item)
+    private int incrementSellinValue(Item item) 
     {
-        switch(item.name)
-        {
-            case "Sulfuras, Hand of Ragnaros":
-            {
-                // Sellin does not change
-                return item.sellIn;
-            }
-            default:
-            {
-                return item.sellIn - 1;
-                
-            }
-        }
+    	if(item.name.equals("Sulfuras, Hand of Ragnaros")) 
+    	{
+    		return item.sellIn;
+    	}
+    	else 
+    	{
+    		return item.sellIn - 1;
+    	}
+    	
     }
 }

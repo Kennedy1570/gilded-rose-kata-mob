@@ -44,7 +44,6 @@ class GildedRoseTest {
         app.updateQuality();
         assertEquals(0, app.items[0].quality, "Quality should be 0 after the concert (sellIn < 0)");
     }
-
     @Test
     //checks that aged-brie quality increases by 1
     void agedBrieQualityIncreasedBy1() 

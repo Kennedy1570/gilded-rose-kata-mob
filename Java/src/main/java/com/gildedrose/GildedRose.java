@@ -17,7 +17,7 @@ class GildedRose {
         }
     }
 
-    private int incrementQualityValue(Item item)
+    public int incrementQualityValue(Item item)
     {
         switch(item.name)
         {
@@ -58,11 +58,11 @@ class GildedRose {
                 {
                     quality += 1;
                 }
-                else if(item.sellIn <= 10 && item.sellIn >= 6)
+                else if(item.sellIn >= 6 && item.sellIn <= 10)
                 {
                     quality += 2;
                 }
-                else if(item.sellIn <= 5 && item.sellIn >= 1)
+                else if(item.sellIn >= 1 && item.sellIn <= 5)
                 {
                     quality += 3;
                 }
@@ -99,7 +99,7 @@ class GildedRose {
         }
     }
 
-    private int incrementSellinValue(Item item) 
+    public int incrementSellinValue(Item item) 
     {
     	if(item.name.equals("Sulfuras, Hand of Ragnaros")) 
     	{

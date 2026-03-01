@@ -25,6 +25,7 @@ class GildedRoseTest {
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(22, app.items[0].quality, "Should increase quality by 2 when sellIn is 10");
+        
     }
 
     @Test
@@ -43,6 +44,15 @@ class GildedRoseTest {
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(0, app.items[0].quality, "Quality should be 0 after the concert (sellIn < 0)");
+    }
+    
+    @Test
+    void backstagePasses_QualityIncreasesBy2() 
+    {
+    	Item[] items = new Item[] { new Item(BACKSTAGE_PASSES, 9, 20) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(22, app.items[0].quality);
     }
     @Test
     //checks that aged-brie quality increases by 1
@@ -105,6 +115,16 @@ class GildedRoseTest {
         app.updateQuality();
         //Assert
         assertEquals(9, app.items[0].sellIn);
+    }
+    @Test
+    void normalItem_decreasesQualityBy2()
+    {
+    	Item[] items = new Item[] { new Item("Normal Item", 0, 20 ) };
+        GildedRose app = new GildedRose(items);
+
+        app.updateQuality();
+        //Assert
+        assertEquals(18, app.items[0].quality);
     }
 
     @Test

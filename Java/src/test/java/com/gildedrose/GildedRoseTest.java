@@ -8,6 +8,29 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class GildedRoseTest {
 
    private final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
+   @Test 
+   //checks that conjured items decreases twice as fast before and after sell by date == || < 0
+   void ConjuredItemsDecreaseTwiceAsFast()
+   {
+	 Item[] items = new Item[] 
+	 { new Item("Conjured Items", 20, 20), 
+	   new Item("Conjured Items", 0, 20)
+	 };
+	 GildedRose app = new GildedRose(items);
+	 app.updateQuality();
+	 assertEquals(18, app.items[0].quality);
+	 assertEquals(16, app.items[1].quality);
+   }
+   
+   @Test 
+   void ConjuredItemQualityIsNotLessThan0()
+   {
+	   //checks that conjured item quality never gets less than 0
+	   Item[] items = new Item[] { new Item("Conjured Items", 0, 0)};
+	   GildedRose app = new GildedRose(items);
+	   app.updateQuality();
+	   assertEquals(0, app.items[0].quality);
+   }
 
     @Test
     void backstagePasses_IncreaseInQualityBy1_WhenMoreThan10DaysLeft() 

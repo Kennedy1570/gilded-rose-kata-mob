@@ -78,6 +78,25 @@ class GildedRose {
 
                 return quality;
             }
+            case "Conjured Items":
+            {
+            	int decreasedQualityValue;
+            	if (item.sellIn > 0)
+            	{
+            		decreasedQualityValue = 2;
+            	}
+            	else 
+            	{
+            		decreasedQualityValue = 4;
+            	}
+            	int newQuality = item.quality - decreasedQualityValue;
+            	
+            	if (newQuality < 0) 
+            	{
+            		return 0;
+            	}
+            	return newQuality;
+            }
             default:
             {
                 int decreaseQualityValue = 1;
